@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+pydantic
+python-dotenv
+langchain
+langchain-community
+psycopg2-binary
+sentence-transformers
+httpx
+cohere
+langchain-text-splitters
+ollama
+pypdf

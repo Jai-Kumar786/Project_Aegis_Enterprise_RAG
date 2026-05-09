@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  --background: 220 20% 4%;
+  --foreground: 210 40% 98%;
+  --primary: 250 100% 65%;
+  --primary-foreground: 210 40% 98%;
+  --surface: 220 20% 8%;
+  --border: 220 20% 12%;
+}
+
+@layer base {
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    /* Soft premium gradient glow */
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(79, 70, 229, 0.08), transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.08), transparent 25%);
+  }
+
+  /* Plain CSS ::selection — avoids Tailwind v4 @apply variant restrictions */
+  ::selection {
+    background-color: rgba(99, 102, 241, 0.3);
+  }
+
+  /* Custom Webkit Scrollbars to match the dark glassmorphism theme */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  /* Custom Markdown Typography (Replaces the need for @tailwindcss/typography) */
+  .prose p {
+    margin-bottom: 1.25em;
+    line-height: 1.7;
+  }
+  .prose strong {
+    color: white;
+    font-weight: 600;
+  }
+  .prose ul {
+    list-style-type: disc;
+    padding-left: 1.5em;
+    margin-top: 0.5em;
+    margin-bottom: 1.25em;
+  }
+  .prose ol {
+    list-style-type: decimal;
+    padding-left: 1.5em;
+    margin-top: 0.5em;
+    margin-bottom: 1.25em;
+  }
+  .prose li {
+    margin-bottom: 0.5em;
+  }
+  .prose li::marker {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .prose h3, .prose h4 {
+    color: white;
+    font-weight: 600;
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+  }
+  .prose blockquote {
+    border-left: 2px solid rgba(99, 102, 241, 0.5);
+    padding-left: 1em;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.25em;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background-color: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+  .glass-panel {
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
